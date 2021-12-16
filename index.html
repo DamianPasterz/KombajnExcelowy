@@ -9,12 +9,15 @@
 </head>
 
 <body>
-    <input type="file" id="file-input" />
+    <input
+      type="file"
+      id="file-input"
+      accept=".csv,application/vnd.ms-excel,.xlt,application/vnd.ms-excel,.xla,application/vnd.ms-excel,.xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,.xltx,application/vnd.openxmlformats-officedocument.spreadsheetml.template,.xlsm,application/vnd.ms-excel.sheet.macroEnabled.12,.xltm,application/vnd.ms-excel.template.macroEnabled.12,.xlam,application/vnd.ms-excel.addin.macroEnabled.12,.xlsb,application/vnd.ms-excel.sheet.binary.macroEnabled.12"
+    />
     <h3>Zawartość pliku</h3>
     <pre id="file-content"></pre>
     <script src="main.js"></script>
-
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.14.3/xlsx.full.min.js"></script>
 </body>
 
 </html>

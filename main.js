@@ -1,41 +1,48 @@
+var file = document.getElementById('file-input')
+file.addEventListener('change', readSingleFile, false);
 
 function readSingleFile(e) {
+  var file = e.target.files[0];
 
-    var file = e.target.files[0];
-    if (!file) {
-        return;
+  if (file) {
+    var r = new FileReader();
+    r.onload = e => {
+      var contents = processExcel(e.target.result);
+      console.log(contents);
+      displayContents(contents)
     }
-    const reader = new FileReader();
-    reader.onload = function (e) {
-        let contents = e.target.result;
-        displayContents(contents);
-        // console.log(e.target.files);
-
-    };
-    reader.readAsText(file);
-    console.log(file);
-
+    r.readAsBinaryString(file);
+  } else {
+    console.log("Failed to load file");
+  }
 }
+
+function processExcel(data) {
+  var workbook = XLSX.read(data, {
+    type: 'binary'
+  });
+  console.log(workbook);
+
+  var data = to_json(workbook);
+  return data
+};
+
+function to_json(workbook) {
+  var result = {};
+
+  workbook.SheetNames.forEach(function(sheetName) {
+    var roa = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName], {
+      header: 1
+    });
+
+    if (roa.length) result[sheetName] = roa;
+  });
+
+  // return JSON.stringify(result, 2, 2);
+  return result;
+};
 
 function displayContents(contents) {
-    let element = document.getElementById('file-content');
-    element.textContent = contents;
+  let element = document.getElementById('file-content');
+  element.textContent = contents;
 }
-
-document.getElementById('file-input')
-    .addEventListener('change', readSingleFile, false);
-
-
-const XLSX = require("xlsx");
-// import xlsx from 'xlsx';
-
-const wordkbook = XLSX.readFile(file)
-const worksheet = wordkbook.Sheets["Arkusz1"];
-
-const arrStudentd = XLSX.utils.sheet_add_json(worksheet);
-console.log(arrStudentd);
-
-
-
-
-
