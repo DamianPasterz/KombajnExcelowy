@@ -52,34 +52,13 @@ function displayContents(contents) {
 }
 
 
-// funkcja do zliczania wszystkich metrów wykonanych
-
-
-function parseData2(contents) {
-  const sheet1 = contents[0];
-  const columneNineValues = [...new Set(sheet1.map(row => row[9]))];
-  const allMeters = columneNineValues.slice(1)
-  console.log(allMeters);
-
-  const result = {};
-
-  for (let index = 0; index < allMeters.length; index++) {
-    const filterted = sheet1.filter(value => value[9] === allMeters[index])
-    const sum = filterted.reduce((acc, value) => {
-      return acc + value[9];
-    }, 0);
-    result[allMeters[index]] = sum;
-  };
-  resultaArray = Object.entries(result);
-
-  console.log(resultaArray);
 
 
 
-}
 
 
-//koniec
+
+
 
 
 
@@ -89,44 +68,43 @@ function parseData(contents) {
   const uniqueMaterialCodes = uniqueColumneValues.slice(1)
   console.log(uniqueMaterialCodes);
 
-  const columneNineValues = [...new Set(sheet1.map(row => row[9]))];
+  const columneNineValues = sheet1.map(row => row[9]);
   // console.log(columneNineValues);
   const allMeters = columneNineValues.slice(1);
   console.log(allMeters);
 
 
 
-  const metersSquare = {};
+  let metersSquare = 0;
   const result = {};
 
   for (let index = 0; index < uniqueMaterialCodes.length; index++) {
     const filterted = sheet1.filter(value => value[6] === uniqueMaterialCodes[index])
     const sum = filterted.reduce((acc, value) => {
-      return acc + value[6];
+      return acc + Math.round(value[9]);
     }, 0);
     result[uniqueMaterialCodes[index]] = sum;
   };
   resultaArray = Object.entries(result);
 
+  console.log(result);
 
 
 
-  for (let index = 0; index < allMeters.length; index++) {
-    const filterted2 = sheet1.filter(value => value[9] === allMeters[index])
-    const sum2 = filterted2.reduce((acc, value) => {
-      return acc + value[9];
-    }, 0);
-    metersSquare[allMeters[index]] = sum2;
+  for (let index1 = 0; index1 < allMeters.length; index1++) {
+    metersSquare += allMeters[index1];
   };
-  resultaArray2 = Object.entries(metersSquare);
 
 
 
 
-  console.log(metersSquare);
+  console.log(Math.floor(metersSquare));
 
-  // console.log(resultaArray);
 
+
+  const h2 = document.createElement('h2');
+  h2.textContent = `suma metrów: ${Math.round(metersSquare)}`;
+  document.body.appendChild(h2)
 
 
 
@@ -140,13 +118,14 @@ function parseData(contents) {
 
       const div = document.createElement('div');
 
+
       div.textContent = pozycja;
       document.body.appendChild(div)
+
       // console.log(resultaArray);
     }
   }
 }
-
 
   // div.textContent = resultaArray[0][0];
   // div2.textContent = resultaArray[0][1];
