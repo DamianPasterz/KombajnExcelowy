@@ -2,22 +2,65 @@
 <html lang="pl">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>kombajnExcelowy</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>kombajnExcelowy</title>
+  <style>
+    .naglowek {
+      float: left;
+    }
+
+    input {
+      width: 300px;
+      height: 50px;
+      background-color: rgba(94, 99, 150, 0.774);
+
+      color: black;
+      border: 2px solid black;
+
+
+    }
+
+    h1 {
+      text-align: center;
+      color: teal;
+    }
+
+    body {
+      background-color: rosybrown;
+
+    }
+
+    div {
+      width: 150px;
+      height: 30px;
+      background-color: black;
+      margin: 5px;
+      /* float: left; */
+      color: white;
+      text-align: center;
+      line-height: 30px;
+      border: 2px solid black;
+    }
+  </style>
 </head>
 
 <body>
-    <input
-      type="file"
-      id="file-input"
-      accept=".csv,application/vnd.ms-excel,.xlt,application/vnd.ms-excel,.xla,application/vnd.ms-excel,.xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,.xltx,application/vnd.openxmlformats-officedocument.spreadsheetml.template,.xlsm,application/vnd.ms-excel.sheet.macroEnabled.12,.xltm,application/vnd.ms-excel.template.macroEnabled.12,.xlam,application/vnd.ms-excel.addin.macroEnabled.12,.xlsb,application/vnd.ms-excel.sheet.binary.macroEnabled.12"
-    />
-    <h3>Zawartość pliku</h3>
-    <pre id="file-content"></pre>
-    <script src="main.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.14.3/xlsx.full.min.js"></script>
+  <h1>Metry hartowanego szkła z podziałem na materiał</h1>
+  <input type="file" id="file-input"
+    accept=".csv,application/vnd.ms-excel,.xlt,application/vnd.ms-excel,.xla,application/vnd.ms-excel,.xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,.xltx,application/vnd.openxmlformats-officedocument.spreadsheetml.template,.xlsm,application/vnd.ms-excel.sheet.macroEnabled.12,.xltm,application/vnd.ms-excel.template.macroEnabled.12,.xlam,application/vnd.ms-excel.addin.macroEnabled.12,.xlsb,application/vnd.ms-excel.sheet.binary.macroEnabled.12" />
+
+  <!-- <h3>Zawartość pliku</h3>
+  <pre id="file-content"></pre> -->
+  <!-- <div class="naglowek"> -->
+  <!-- <div>kod materiału</div>
+    <div>m2</div>
+  </div>
+  <div style="clear:both;"></div> -->
+
+  <script src="main.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.14.3/xlsx.full.min.js"></script>
 </body>
 
 </html>
