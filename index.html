@@ -7,57 +7,107 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>kombajnExcelowy</title>
   <style>
-    .naglowek {
-      float: left;
+    body {
+      box-sizing: border-box;
+      background-color: rgb(223, 163, 75);
+
     }
+
 
     input {
+
       width: 300px;
       height: 50px;
-      background-color: rgba(94, 99, 150, 0.774);
-
+      background-color: rgba(150, 94, 113, 0.774);
       color: black;
       border: 2px solid black;
+    }
 
+    input[type=file] {
+      display: none;
+      padding: 5px 15px;
+      background: #ccc;
+      border: 0 none;
+      cursor: pointer;
+      -webkit-border-radius: 5px;
+      border-radius: 5px;
+    }
+
+    .custom-file-upload {
+      width: 450px;
+      height: 50px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      display: inline-block;
+      /* padding-top: 30px; */
+      padding-left: 30px;
+      padding-right: 30px;
+      cursor: alias;
+      background-color: teal;
+      color: antiquewhite;
+      text-align: center;
+      font-size: 45px;
 
     }
 
-    h1 {
+
+
+    .header {
+      justify-content: center;
+      align-items: center;
       text-align: center;
+      font-size: 30px;
       color: teal;
     }
 
-    body {
-      background-color: rosybrown;
 
+
+    .material__display {
+      width: 450px;
+      height: 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-left: 30px;
+      padding-right: 30px;
+      border: 1px black solid;
+      font-size: 35px;
     }
 
-    div {
-      width: 150px;
-      height: 30px;
-      background-color: black;
-      margin: 5px;
-      /* float: left; */
-      color: white;
-      text-align: center;
-      line-height: 30px;
-      border: 2px solid black;
+
+    .reesault__row {
+      padding-left: 30px;
+      padding-right: 30px;
+      width: 450px;
+      height: 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px black solid;
+      border-bottom: .5;
     }
   </style>
 </head>
 
 <body>
-  <h1>Metry hartowanego szkła z podziałem na materiał</h1>
-  <input type="file" id="file-input"
-    accept=".csv,application/vnd.ms-excel,.xlt,application/vnd.ms-excel,.xla,application/vnd.ms-excel,.xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,.xltx,application/vnd.openxmlformats-officedocument.spreadsheetml.template,.xlsm,application/vnd.ms-excel.sheet.macroEnabled.12,.xltm,application/vnd.ms-excel.template.macroEnabled.12,.xlam,application/vnd.ms-excel.addin.macroEnabled.12,.xlsb,application/vnd.ms-excel.sheet.binary.macroEnabled.12" />
+  <div class="header">Metry hartowanego szkła z podziałem na materiał</div>
+  <label class="custom-file-upload">
 
-  <!-- <h3>Zawartość pliku</h3>
-  <pre id="file-content"></pre> -->
-  <!-- <div class="naglowek"> -->
-  <!-- <div>kod materiału</div>
+    WYBIERZ PLIK
+    <input type="file" id="file-input"
+      accept=".csv,application/vnd.ms-excel,.xlt,application/vnd.ms-excel,.xla,application/vnd.ms-excel,.xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,.xltx,application/vnd.openxmlformats-officedocument.spreadsheetml.template,.xlsm,application/vnd.ms-excel.sheet.macroEnabled.12,.xltm,application/vnd.ms-excel.template.macroEnabled.12,.xlam,application/vnd.ms-excel.addin.macroEnabled.12,.xlsb,application/vnd.ms-excel.sheet.binary.macroEnabled.12" />
+  </label>
+
+
+  <pre id="file-content"></pre>
+  <div class="material__display">
+    <div>kod materiału</div>
     <div>m2</div>
   </div>
-  <div style="clear:both;"></div> -->
+  <div class="reesault__field">
+
+  </div>
+
 
   <script src="main.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.14.3/xlsx.full.min.js"></script>
