@@ -86,13 +86,29 @@
       border: 1px black solid;
       border-bottom: .5;
     }
+
+    .download {
+      width: 450px;
+      height: 50px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      display: inline-block;
+      /* padding-top: 30px; */
+      padding-left: 30px;
+      padding-right: 30px;
+      cursor: alias;
+      background-color: teal;
+      color: antiquewhite;
+      text-align: center;
+      font-size: 45px;
+
+    }
   </style>
 </head>
 
 <body>
   <div class="header">Metry hartowanego szkła z podziałem na materiał</div>
   <label class="custom-file-upload">
-
     WYBIERZ PLIK
     <input type="file" id="file-input"
       accept=".csv,application/vnd.ms-excel,.xlt,application/vnd.ms-excel,.xla,application/vnd.ms-excel,.xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,.xltx,application/vnd.openxmlformats-officedocument.spreadsheetml.template,.xlsm,application/vnd.ms-excel.sheet.macroEnabled.12,.xltm,application/vnd.ms-excel.template.macroEnabled.12,.xlam,application/vnd.ms-excel.addin.macroEnabled.12,.xlsb,application/vnd.ms-excel.sheet.binary.macroEnabled.12" />
@@ -104,9 +120,7 @@
     <div>kod materiału</div>
     <div>m2</div>
   </div>
-  <div class="reesault__field">
-
-  </div>
+  <div class="reesault__field"></div>
 
 
   <script src="main.js"></script>
